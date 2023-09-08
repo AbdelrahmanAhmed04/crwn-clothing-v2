@@ -1,13 +1,7 @@
-import { Routes, Route } from 'react-router-dom';
-
-import Home from './routes/home/home.componentt';
+import CategoriesContainer from "./components/catigories-container/categories-container.component";
 
 const App = () => {
-  return (
-    <Routes>
-      <Route path='/' index element={<Home />} />
-    </Routes>
-  );
+  return <CategoriesContainer />;
 };
 
 export default App;
