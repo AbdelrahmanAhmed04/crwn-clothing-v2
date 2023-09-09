@@ -47,9 +47,18 @@ const SignInForm = () => {
       console.log(user);
 
       alert("Login successfuly");
-      // resetFormFileds();
+      resetFormFileds();
     } catch (error) {
-      alert("User creation encountered an error " + error);
+      switch (error.code) {
+        case "auth/wrong-password":
+          alert("incorrect Password for the email");
+          break;
+        case "auth/user-not-found":
+          alert("No user associated with this email");
+          break;
+        default:
+          console.log(error);
+      }
     }
   };
   return (
@@ -73,14 +82,13 @@ const SignInForm = () => {
           value={password}
           required
         />
-
-        <Button type="submit" children="Sign In" />
+        <div className="buttons-container">
+          <Button type="submit">Sign in</Button>
+          <Button type="button" onClick={logGoogleUser} buttonType="google">
+            Log in with google
+          </Button>
+        </div>
       </form>
-      <Button
-        onClick={logGoogleUser}
-        buttonType="google"
-        children="Sign in with Google Popup"
-      />
     </div>
   );
 };
