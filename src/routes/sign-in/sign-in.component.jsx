@@ -1,15 +1,32 @@
-import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import {
+  signInWithGooglePopup,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase/firebase.utils";
 
 const SignIn = () => {
-  const logGoogleUser = () => {
-    signInWithGooglePopup()
-      .then((response) => {
-        console.log("sign in success", response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  //  ASYNC AWAIT FUNCTION
+  const logGoogleUser = async () => {
+    try {
+      const { user } = await signInWithGooglePopup();
+      const userDocRef = await createUserDocumentFromAuth(user);
+      console.log("sign in success", user);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  // const logGoogleUser = () => {
+  //   signInWithGooglePopup()
+  //     .then(({ user }) => {
+  //       return createUserDocumentFromAuth(user);
+  //     })
+  //     .then((userDocRef) => {
+  //        console.log("sign in success", user);
+  //       })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
 
   return (
     <div>
