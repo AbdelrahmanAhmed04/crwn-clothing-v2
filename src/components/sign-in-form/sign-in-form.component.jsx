@@ -6,7 +6,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import InputField from "../input-field/input-field.component";
 import Button from "../button/button.component";
-import "./sign-in-form.styles.scss";
+import { SignInContainer, ButtonsContainer } from "./sign-in-form.styles";
 
 const SignInForm = () => {
   const logGoogleUser = async () => {
@@ -55,7 +55,7 @@ const SignInForm = () => {
     }
   };
   return (
-    <div className="sign-up-container">
+    <SignInContainer>
       <h2>Have an account</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={submitHandler}>
@@ -75,14 +75,14 @@ const SignInForm = () => {
           value={password}
           required
         />
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button type="submit">Sign in</Button>
           <Button type="button" onClick={logGoogleUser} buttonType="google">
             Log in with google
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 

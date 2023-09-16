@@ -1,6 +1,6 @@
-import CategoryContainer from "../category-container/category-container.component";
-import "./categories-conteiner.styles.scss";
-const CategoriesContainer = () => {
+import DirectoryItem from "../directory-item/directory-item.component";
+import { CategoriesContainer } from "./directory.styles";
+const Directory = () => {
   const categories = [
     {
       id: 1,
@@ -30,12 +30,12 @@ const CategoriesContainer = () => {
   ];
 
   return (
-    <div className="categories-container">
+    <CategoriesContainer>
       {categories.map(({ id, title, imageUrl }) => {
-        return <CategoryContainer key={id} title={title} imageUrl={imageUrl} />;
+        return <DirectoryItem key={id} title={title} imageUrl={imageUrl} />;
       })}
-    </div>
+    </CategoriesContainer>
   );
 };
 
-export default CategoriesContainer;
+export default Directory;

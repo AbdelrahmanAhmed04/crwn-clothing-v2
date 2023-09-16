@@ -1,19 +1,19 @@
-import "./input-filed.styles.scss";
+import {
+  InputContainer,
+  FormInputLabel,
+  FormInput,
+} from "./input-field.styles";
 
 const InputField = ({ label, ...otherProps }) => {
   return (
-    <div className="input-container">
-      <input className="form-input" {...otherProps} />
+    <InputContainer>
+      <FormInput {...otherProps} />
       {label && (
-        <label
-          className={`${
-            otherProps.value.length ? "shrink" : ""
-          } form-input-label`}
-        >
+        <FormInputLabel shrink={otherProps.value.length}>
           {label}
-        </label>
+        </FormInputLabel>
       )}
-    </div>
+    </InputContainer>
   );
 };
 export default InputField;

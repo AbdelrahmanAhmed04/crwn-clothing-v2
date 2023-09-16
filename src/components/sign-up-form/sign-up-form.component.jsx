@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase/firebase.utils";
 import InputField from "../input-field/input-field.component";
 import Button from "../button/button.component";
+import { SignUpContainer } from "./sign-up-form.styles";
 const SignUpForm = () => {
   const defaultFromFields = {
     displayName: "",
@@ -53,7 +54,7 @@ const SignUpForm = () => {
     }
   };
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <h2>Sign Up</h2>
       <form onSubmit={submitHandler}>
         <InputField
@@ -91,7 +92,7 @@ const SignUpForm = () => {
 
         <Button type="submit" value="Submit" children="Sign Up" />
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 
