@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState } from "react";
 import { useEffect } from "react";
 
 const getInitialState = () => {
@@ -11,7 +11,6 @@ const addCartItem = (cartItems, productToAdd) => {
     (cardItem) => cardItem.id === productToAdd.id
   );
   if (existingCartItem) {
-    console.log("true");
     return cartItems.map((cartItem) =>
       cartItem.id === productToAdd.id
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
@@ -67,6 +66,5 @@ export const CartProvider = ({ children }) => {
     isCartOpen,
     setIsCartOpen,
   };
-  console.log(cartItems);
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

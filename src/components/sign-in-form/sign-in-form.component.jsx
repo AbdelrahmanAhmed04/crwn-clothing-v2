@@ -7,7 +7,7 @@ import {
 import InputField from "../input-field/input-field.component";
 import Button from "../button/button.component";
 import { SignInContainer, ButtonsContainer } from "./sign-in-form.styles";
-
+import { BUTTON_TYPE_CLASSES } from "../button/button.component";
 const SignInForm = () => {
   const logGoogleUser = async () => {
     try {
@@ -77,7 +77,11 @@ const SignInForm = () => {
         />
         <ButtonsContainer>
           <Button type="submit">Sign in</Button>
-          <Button type="button" onClick={logGoogleUser} buttonType="google">
+          <Button
+            type="button"
+            onClick={logGoogleUser}
+            buttonType={BUTTON_TYPE_CLASSES.google}
+          >
             Log in with google
           </Button>
         </ButtonsContainer>
